@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GPU Optimization Expert - SivaBalaji</title>
+    <title>GPU Optimization Expert - Sivabalaji</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -58,6 +58,9 @@
             text-decoration: none;
             border-radius: 5px;
             font-weight: bold;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
         }
         .contact-form {
             background: white;
@@ -68,12 +71,23 @@
         .form-group {
             margin-bottom: 20px;
         }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
         .form-group input, .form-group textarea, .form-group select {
             width: 100%;
             padding: 12px;
             border: 1px solid #ddd;
             border-radius: 5px;
             box-sizing: border-box;
+        }
+        .contact-info {
+            background: #e8f5e8;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -123,7 +137,7 @@
             <h2>🎯 Free 15-Minute Consultation</h2>
             <p>Let's discuss your GPU optimization needs!</p>
             
-            <form action="mailto:your-email@gmail.com" method="post" enctype="text/plain">
+            <form id="consultationForm">
                 <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" required>
@@ -152,14 +166,45 @@
                 
                 <button type="submit" class="btn">Send Consultation Request</button>
             </form>
-        </div>
 
-        <div style="text-align: center; padding: 40px; background: white; border-radius: 10px; margin-top: 30px;">
-            <h3>📞 Contact Information</h3>
-            <p>Email: sivabalajihyper2006@gmail.com</p>
-            <p>Response time: Within 24 hours</p>
-            <p>Satisfaction guaranteed or money back!</p>
+            <div class="contact-info">
+                <h3>📞 Contact Information</h3>
+                <p><strong>Email:</strong> sivabalajihyper2006@gmail.com</p>
+                <p><strong>WhatsApp:</strong> +91-8667214592</p>
+                <p><strong>Response time:</strong> Within 24 hours</p>
+                <p><strong>Guarantee:</strong> Satisfaction guaranteed or money back!</p>
+            </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById('consultationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const service = document.getElementById('service').value;
+            const setup = document.getElementById('current-setup').value;
+            
+            // Create email subject and body
+            const subject = 'GPU Consultation Request from ' + name;
+            const body = `Hi Sivabalaji,
+
+I am interested in your GPU optimization services.
+
+Name: ${name}
+Email: ${email}
+Service Needed: ${service}
+Current Setup: ${setup}
+
+Please contact me to discuss further.
+
+Best regards,
+${name}`;
+            const mailtoLink = `mailto:sivabalajihyper2006@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+            window.location.href = mailtoLink;
+            alert('Thank you! Your email client should open now. If it doesn\'t, please email me directly at: your-email@gmail.com');
+        });
+    </script>
 </body>
 </html>
